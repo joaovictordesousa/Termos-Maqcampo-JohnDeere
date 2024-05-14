@@ -1,6 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<x-app-layout>
+ <title>Maqcampo | John Deere</title>
+    <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Termos') }}
@@ -19,6 +20,9 @@
                                 <th>CPF</th>
                                 <th>Aparelho</th>
                                 <th>Modelo</th>
+                                <th>Serie do aparelho</th>
+                                <th>Status</th>
+                                <th>Anexo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +33,9 @@
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
                                     <td>{{ $termos->modelo }}</td>
+                                    <td>{{ $termos->serie }}</td>
+                                    <td>Ativo</td>
+                                    <td>Não anexado</td>
                                 </tr>
                             @endforeach
                         </tbody>
