@@ -72,8 +72,10 @@ class PrincipalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Termos $termos)
     {
-        //
+        $termos->delete();
+
+        return redirect()->route('index.termos')->with('danger', 'Excluido com sucesso.');
     }
 }
