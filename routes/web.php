@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/create', [PrincipalController::class, 'create'])->name('index.create');
     Route::post('/dashboard/store', [PrincipalController::class, 'store'])->name('index.store');
     Route::get('/termos/show/{termos}', [PrincipalController::class, 'show'])->name('index.show');
+    Route::delete('/termos/show/{termos}', [PrincipalController::class, 'destroy'])->name('index.destroy');
 
 // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

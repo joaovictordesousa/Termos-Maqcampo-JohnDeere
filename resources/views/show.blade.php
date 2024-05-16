@@ -1,9 +1,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
- <title>Maqcampo | John Deere</title>
-    <x-app-layout>
+<title>Maqcampo | John Deere</title>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Termos') }}
@@ -11,33 +11,38 @@
     </x-slot>
 
     <div class="card shadow" id="container_show">
-    <div class="card-body text-center shadow">
-        <h4 class="card-title ">Vencimentos</h4><br>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <table class="table" id="show_show">
-                        <tbody>
-                            <tr>
-                                <th><b>Nome do usuario:</b></th>
-                                <td>{{ $termos->usuario }}</td>
-                                
-                            </tr>
-                            <tr>
-                                <th><b>Filial:</b></th>
-                                <td>{{ $termos->filial }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div class="card-body text-center shadow">
+            <h4 class="card-title ">Vencimentos</h4><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <table class="table" id="show_show">
+                            <tbody>
+                                <tr>
+                                    <th><b>Nome do usuario:</b></th>
+                                    <td>{{ $termos->usuario }}</td>
+
+                                </tr>
+                                <tr>
+                                    <th><b>Filial:</b></th>
+                                    <td>{{ $termos->filial }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container_voltar_tabela_show">
-            <br><a class="btn btn-primary" href="{{ route('index.termos')}}" role="button"><img src="{{ asset('img/voltar.png')}}" class="img_voltar" alt="img"></a>
+            <div class="container_voltar_tabela_show">
+                <br><a class="btn btn-primary" href="{{ route('index.termos')}}" role="button" id="butão_voltar"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+                    </svg></a>
+            </div>
         </div>
     </div>
-</div>
 </x-app-layout>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-</script>
+    </script>
