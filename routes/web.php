@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/termos', [PrincipalController::class, 'termos'])->name('index.termos');
     Route::get('/dashboard/create', [PrincipalController::class, 'create'])->name('index.create');
     Route::post('/dashboard/store', [PrincipalController::class, 'store'])->name('index.store');
+    Route::get('/termos/show/{termos}', [PrincipalController::class, 'show'])->name('index.show');
+
 // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
