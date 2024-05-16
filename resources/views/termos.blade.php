@@ -1,5 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
  <title>Maqcampo | John Deere</title>
     <x-app-layout>
     <x-slot name="header">
@@ -20,9 +22,9 @@
                                 <th>CPF</th>
                                 <th>Aparelho</th>
                                 <th>Modelo</th>
-                                <th>Serie do aparelho</th>
                                 <th>Status</th>
                                 <th>Anexo</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,9 +35,9 @@
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
                                     <td>{{ $termos->modelo }}</td>
-                                    <td>{{ $termos->serie }}</td>
                                     <td>Ativo</td>
                                     <td>Não anexado</td>
+                                    <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver termo</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
