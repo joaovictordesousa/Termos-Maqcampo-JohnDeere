@@ -24,6 +24,7 @@
                                 <th>Modelo</th>
                                 <th>Status</th>
                                 <th>Anexo</th>
+                                <th>Editar</th>
                                 <th>Visualizar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -38,6 +39,7 @@
                                     <td>{{ $termos->modelo }}</td>
                                     <td>Ativo</td>
                                     <td>Não anexado</td>
+                                    <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}" role="button">Editar</a></td>
                                     <td style="display: flex;">
                                         <a class="btn btn-primary"
                                             href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver
