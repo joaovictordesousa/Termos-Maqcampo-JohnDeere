@@ -50,15 +50,18 @@ class PrincipalController extends Controller
      */
     public function show(Termos $termos)
     {
-        return view('show', ['termos'=> $termos]);
+        return view('show', ['termos' => $termos]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Termos $termos)
     {
-        //
+
+        $Allaparelhos = Auxaparelho::all();
+
+        return view('edit', ['termos' => $termos, 'Allaparelhos' => $Allaparelhos]);
     }
 
     /**
@@ -66,7 +69,20 @@ class PrincipalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $Novotermo = [
+            'usuario' => $request->input('usuario'),
+            'filial' => $request->input('filial'),
+            'cpf' => $request->input('cpf'),
+            'serie' => $request->input('serie'),
+            'auxaparelho' => $request->input('auxaparelho'),
+            'modelo' => $request->input('modelo')
+        ];
+
+        // Atualização de resultado
+
+        Termos::where('id', $id)->update($Novotermo);
+
+        return redirect()->route('index.termos')->with('success', 'Guia de recolhimento alterado com sucesso.');
     }
 
     /**

@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/store', [PrincipalController::class, 'store'])->name('index.store');
     Route::get('/termos/show/{termos}', [PrincipalController::class, 'show'])->name('index.show');
     Route::delete('/termos/show/{termos}', [PrincipalController::class, 'destroy'])->name('index.destroy');
+    Route::get('/termos/edit/{termos}', [PrincipalController::class, 'edit'])->name('index.edit');
+    Route::put('/termos/edit/{termos}', [PrincipalController::class, 'update'])->name('index.update');
+
 
 // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
