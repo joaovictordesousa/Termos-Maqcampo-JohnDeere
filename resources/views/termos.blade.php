@@ -26,6 +26,7 @@
                                 <th>Anexo</th>
                                 <th>Editar</th>
                                 <th>Visualizar</th>
+                                <th>Anexar termo:</th>
                                 <th>Excluir</th>
                             </tr>
                         </thead>
@@ -45,6 +46,10 @@
                                             href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver
                                             termo</a>
                                             
+                                    </td>
+
+                                    <td>
+                                       <a class="btn btn-success" href="{{ route('termo.index')}}">+</a>
                                     </td>
 
                                     <td>

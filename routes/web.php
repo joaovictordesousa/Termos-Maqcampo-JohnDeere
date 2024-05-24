@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\AnexotermoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/termos/show/{termos}', [PrincipalController::class, 'destroy'])->name('index.destroy');
     Route::get('/termos/edit/{termos}', [PrincipalController::class, 'edit'])->name('index.edit');
     Route::put('/termos/edit/{termos}', [PrincipalController::class, 'update'])->name('index.update');
+
+    // --------------------------
+
+    Route::get('/termos/{termo}/anexo', [AnexotermoController::class, 'index'])->name('termo.index');
 
 
 // ------------------------------   
