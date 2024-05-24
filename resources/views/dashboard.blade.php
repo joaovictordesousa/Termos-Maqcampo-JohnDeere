@@ -28,7 +28,7 @@
 
                         <div class="col-md-4">
                             <label for="validationDefault02" class="form-label">CPF</label>
-                            <input type="text" class="form-control" name="cpf" minlength="11" maxlength="11" id="campo" required>
+                            <input type="text" onkeydown="load()" class="form-control" name="cpf" maxlength="18" id="formatcpf" required>
                         </div>
 
                         <div class="col-md-3">
@@ -63,4 +63,22 @@
 </x-app-layout>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
+<script>
+    function load() {
+    let inout = document.getElementById('formatcpf');
+    let inputValue = input.value.replace(/\d/g, "");
+    let formattedValue = "";
+
+    if (inputValue.length === 11) {
+        formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    } else if (inputValue.length == 14) {
+        formattedValue = inputValue.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-%5");
+    } else {
+        formattedValue = inputValue;
+    }
+
+    input.value = formattedValue;
+
+}
 </script>
