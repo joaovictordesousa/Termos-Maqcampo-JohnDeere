@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Anexotermo extends Model
+class Anexotermos extends Model
 {
     use HasFactory;
 
 
-    protected $table = 'anexotermo';
+    protected $table = 'anexotermos';
 
     protected $fillable = [
         'arquivo'
@@ -19,4 +19,9 @@ class Anexotermo extends Model
     // public function Anexo(): BelongsTo {
     //     return $this->belongsTo(Termos::class, 'termos', 'id');
     // }
+    public function termo()
+    {
+        return $this->belongsTo(Termos::class, 'termos_id'); // Especifique o nome da coluna do relacionamento
+    }
+    
 }
