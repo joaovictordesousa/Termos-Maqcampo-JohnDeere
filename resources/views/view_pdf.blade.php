@@ -26,16 +26,14 @@
 
 <title>Maqcampo | John Deere</title>
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Termos') }}
-        </h2>
-    </x-slot>
-
+@foreach ($Alltermos as $termos)
+    
     <div class="card shadow" id="container_show">
         
         <h1>Termo de Responsabilidade pela Guarda e Uso de Equipamentos</h1>
-        
+        <br>
+        <br>
+        <br>
         <div class="section">
             <h2>1. Informações do colaborador</h2>
             <table>
@@ -98,19 +96,7 @@
             </div>
         </div>
     
-        
-        </div>
-            <div class="container_voltar_tabela_show">
-                <br><a class="btn btn-primary" href="{{ route('index.termos')}}" role="button" id="butão_voltar"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
-                    </svg></a>
-
-                    <a href="{{ route('gerar-pdf', ['termos' => $termos]) }}" class="btn btn-primary" id="btn">Gerar PDF</a>
-            </div>
-        </div>
+        @endforeach
         <br>
         <br>
         <br>
@@ -119,4 +105,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-

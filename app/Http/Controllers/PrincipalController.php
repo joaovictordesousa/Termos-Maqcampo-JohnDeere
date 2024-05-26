@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auxaparelho;
 use App\Models\Termos;
+use Dompdf\Dompdf; // Importa a classe Dompdf
 use Illuminate\Http\Request;
 
 class PrincipalController extends Controller
@@ -93,5 +94,42 @@ class PrincipalController extends Controller
         $termos->delete();
 
         return redirect()->route('index.termos')->with('danger', 'Excluido com sucesso.');
+    }
+
+    public function exibirPagina()
+    {
+        $Alltermos = Termos::all();
+    
+        return view('view_pdf', ['Alltermos' => $Alltermos]);
+    }
+    
+    public function gerarPDF(Request $request)
+    {
+        $search = $request->input('search', ''); 
+
+        $query = Termos::query();  // Faz uma busca no CADASTRO
+
+        if (!empty($search)) {
+            $query->where('name', 'LIKE', "%$search%");
+        }
+
+        $Alltermos = $query->get();
+
+        // Utilize a classe Dompdf
+        $dompdf = new Dompdf();
+        
+        // Carregue a view e passe os dados
+        $html = view('view_pdf', compact('Alltermos'))->render();
+        
+        $dompdf->loadHtml($html);
+
+        // (Opcional) Defina o tamanho do papel e a orientação
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Renderize o HTML como PDF
+        $dompdf->render();
+
+        // Envie o PDF gerado para o navegador
+        return $dompdf->stream('lista_de_dados.pdf', ["Attachment" => false]);
     }
 }

@@ -35,7 +35,7 @@
                             <label for="validationDefault02" class="form-label">Numero de serie</label>
                             <input type="text" class="form-control" name="serie" id="campo" required>
                         </div>
-
+ 
                         <div class="col-md-3">
                             <label for="validationDefault04" class="form-label">Aparelho</label>
                             <select class="form-select" name="auxaparelho" id="campo" required>

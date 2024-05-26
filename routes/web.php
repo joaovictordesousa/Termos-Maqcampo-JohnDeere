@@ -33,7 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/termos/show/{termos}', [PrincipalController::class, 'destroy'])->name('index.destroy');
     Route::get('/termos/edit/{termos}', [PrincipalController::class, 'edit'])->name('index.edit');
     Route::put('/termos/edit/{termos}', [PrincipalController::class, 'update'])->name('index.update');
-
+    Route::get('/pagina-com-botao-pdf', [PrincipalController::class, 'exibirPagina'])->name('exibir-pagina-pdf');
+    Route::get('/gerar-pdf', [PrincipalController::class, 'gerarPDF'])->name('gerar-pdf');
 
 // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
