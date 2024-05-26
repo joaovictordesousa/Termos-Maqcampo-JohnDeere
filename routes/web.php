@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\AnexotermosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,13 +34,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/termos/show/{termos}', [PrincipalController::class, 'destroy'])->name('index.destroy');
     Route::get('/termos/edit/{termos}', [PrincipalController::class, 'edit'])->name('index.edit');
     Route::put('/termos/edit/{termos}', [PrincipalController::class, 'update'])->name('index.update');
-    Route::get('/pagina-com-botao-pdf', [PrincipalController::class, 'exibirPagina'])->name('exibir-pagina-pdf');
-    Route::get('/gerar-pdf', [PrincipalController::class, 'gerarPDF'])->name('gerar-pdf');
 
-// ------------------------------   
+    // --------------------------
+
+    Route::get('/termos/anexos', [AnexotermosController::class, 'index'])->name('anexos.index');
+    Route::get('/termos/anexos/create', [AnexotermosController::class, 'create'])->name('anexos.create');
+    Route::post('/termos/anexos/store', [AnexotermosController::class, 'store'])->name('anexos.store');
+    Route::get('/arquivos/{arquivos}', [AnexotermosController::class, 'show'])->name('anexos.show');     
+    Route::get('/termos/anexos/{arquivos}/edit', [AnexotermosController::class, 'edit'])->name('anexos.edit');
+    Route::put('/termos/anexos/{arquivos}', [AnexotermosController::class, 'update'])->name('anexos.update');
+    Route::delete('/termos/anexos/{arquivos}', [AnexotermosController::class, 'destroy'])->name('anexos.destroy');
+
+
+    // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

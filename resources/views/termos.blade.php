@@ -23,7 +23,7 @@
                                 <th>Aparelho</th>
                                 <th>Modelo</th>
                                 <th>Status</th>
-                                <th>Anexo</th>
+                                <th>termo</th>
                                 <th>Editar</th>
                                 <th>Visualizar</th>
                                 <th>Excluir</th>
@@ -40,13 +40,7 @@
                                     <td>Ativo</td>
                                     <td>Não anexado</td>
                                     <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}" role="button">Editar</a></td>
-                                    <td style="display: flex;">
-                                        <a class="btn btn-primary"
-                                            href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver
-                                            termo</a>
-                                            
-                                    </td>
-
+                                    <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver termo</a></td>
                                     <td>
                                         <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"
                                             onsubmit="return confirm('Tem certeza que deseja excluir?')">

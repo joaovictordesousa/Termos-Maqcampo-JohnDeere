@@ -61,7 +61,6 @@ class PrincipalController extends Controller
     {
 
         $Allaparelhos = Auxaparelho::all();
-
         return view('edit', ['termos' => $termos, 'Allaparelhos' => $Allaparelhos]);
     }
 
