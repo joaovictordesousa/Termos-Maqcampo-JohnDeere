@@ -23,7 +23,7 @@
                                 <th>Aparelho</th>
                                 <th>Modelo</th>
                                 <th>Status</th>
-                                <th>termo</th>
+                                <th>Anexar termo</th>
                                 <th>Editar</th>
                                 <th>Visualizar</th>
                                 <th>Excluir</th>
@@ -37,10 +37,10 @@
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
                                     <td>{{ $termos->modelo }}</td>
-                                    <td>Ativo</td>
-                                    <td>Não anexado</td>
+                                    <td>{{ $termos->Anexotermos->arquivo}}</td>
+                                    <td><a class="btn btn-success" href="{{ route('anexos.index',[ 'termos'=> $termos]) }}" role="button">Anexar</a></td>
                                     <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}" role="button">Editar</a></td>
-                                    <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver termo</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver</a></td>
                                     <td>
                                         <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"
                                             onsubmit="return confirm('Tem certeza que deseja excluir?')">

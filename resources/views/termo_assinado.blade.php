@@ -47,7 +47,6 @@
                             @foreach ($Allarquivos as $arquivos)
                                 <tr>
                                     <td>{{ $arquivos->arquivo }}</td>
-                                    <td><a href="{{ route('anexos.show', ['arquivos' => $arquivos->id]) }}">Visualizar Arquivo</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

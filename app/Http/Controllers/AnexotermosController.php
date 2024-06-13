@@ -11,12 +11,12 @@ class AnexotermosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Anexotermos $anexotermos)
     {
         $Allarquivos = Anexotermos::all();
 
 
-        return view('termo_assinado', [ 'Allarquivos' => $Allarquivos]);
+        return view('termo_assinado', [ 'Allarquivos' => $Allarquivos, 'anexotermos'=>$anexotermos]);
     }
 
     /**
