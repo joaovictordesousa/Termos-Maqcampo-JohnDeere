@@ -28,7 +28,7 @@
 
                         <div class="col-md-4">
                             <label for="validationDefault02" class="form-label">CPF</label>
-                            <input type="text" onkeydown="load()" class="form-control" name="cpf" maxlength="18" id="formatcpf" required>
+                            <input type="text" onkeydown="load()" class="form-control" name="cpf" maxlength="18" id="campo" required>
                         </div>
 
                         <div class="col-md-3">

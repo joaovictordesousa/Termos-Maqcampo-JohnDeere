@@ -35,17 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/termos/edit/{termos}', [PrincipalController::class, 'edit'])->name('index.edit');
     Route::put('/termos/edit/{termos}', [PrincipalController::class, 'update'])->name('index.update');
 
-    // --------------------------
-
-    Route::get('/termos/{termos}/anexos', [AnexotermosController::class, 'index'])->name('anexos.index');
-    Route::get('/termos/anexos/{anexotermos}/create', [AnexotermosController::class, 'create'])->name('anexos.create');
-    Route::post('/termos/anexos/store', [AnexotermosController::class, 'store'])->name('anexos.store');
-    Route::get('/arquivos/{anexotermos}', [AnexotermosController::class, 'show'])->name('anexos.show');     
-    Route::get('/termos/anexos/{anexotermos}/edit', [AnexotermosController::class, 'edit'])->name('anexos.edit');
-    Route::put('/termos/anexos/{anexotermos}', [AnexotermosController::class, 'update'])->name('anexos.update');
-    Route::delete('/termos/anexos/{anexotermos}', [AnexotermosController::class, 'destroy'])->name('anexos.destroy');
-
-
     // ------------------------------   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
