@@ -25,8 +25,10 @@ class Termos extends Model
         return $this->belongsTo(Auxaparelho::class, 'auxaparelho', 'id');
     }
 
-    public function Anexotermos()
-    {
-        return $this->belongsTo(Anexotermos::class, 'id', 'arquivo'); // Substitua com os nomes reais das colunas
+    public function situacaoTermo(): BelongsTo {
+        return $this->belongsTo(SituacaoTermo::class, 'situacao_termo_id', 'id');
     }
+    
+ 
+
 }

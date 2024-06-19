@@ -12,6 +12,11 @@ class AnexotermoSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // \App\Models\Auxaparelho::factory(10)->create();
+
+        // \App\Models\Auxaparelho::factory()->create([
+        //     'id' => '1',
+        //     'aparelho' => 'Notebook',
+        // ]);
     }
 }

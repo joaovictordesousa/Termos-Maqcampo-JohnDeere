@@ -42,7 +42,7 @@
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
                                     <td>{{ $termos->modelo }}</td>
-                                    <td class="teste"><b>Pendente</b></td>
+                                    <td class="teste"><b>{{ $termos->situacaoTermo->name  }}</b></td>
                                     <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}" role="button">Editar</a></td>
                                     <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver</a></td>
                                     <td>
