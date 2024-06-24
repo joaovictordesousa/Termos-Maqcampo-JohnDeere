@@ -62,3 +62,17 @@ h1 {
     display: inline-block;
 }
 
+#fundo_login {
+    background-image: url('../img/463115.jpg');
+}
+
+#container_login {
+    background-color: rgb(2, 192, 2);
+    color: white;
+    font-size: 50%;
+}
+
+#alert_container {
+    margin: 2em auto;
+    width: 50%;
+  }

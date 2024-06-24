@@ -10,6 +10,18 @@
         </h2>
     </x-slot>
 
+    @if (session('success'))
+        <div class="alert alert-success" id="alert_container">
+            {{ session('success') }}
+        </div>
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert-success').style.display = 'none';
+            }, {{ session('display_time', 3000) }});
+        </script>
+    @endif
+
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

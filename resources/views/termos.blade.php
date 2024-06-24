@@ -15,6 +15,28 @@
             {{ __('Termos') }}
         </h2>
     </x-slot>
+<!-- -----------------ALERTAR-------------------------------------------------- -->
+    @if (session('danger'))
+        <div class="alert alert-danger" id="alert_container">
+            {{ session('danger') }}
+        </div>
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert-danger').style.display = 'none';
+            }, {{ session('display_time', 3000) }});
+        </script>
+    @endif
+    @if (session('warning'))
+        <div class="alert alert-warning" id="alert_container">
+            {{ session('warning') }}
+        </div>
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert-warning').style.display = 'none';
+            }, {{ session('display_time', 3000) }});
+        </script>
+    @endif
+<!-- -----------------ALERTAR-------------------------------------------------- -->
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
