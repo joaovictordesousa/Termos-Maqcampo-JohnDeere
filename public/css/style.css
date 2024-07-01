@@ -18,44 +18,57 @@ body {
     font-family: Arial, sans-serif;
     margin: 40px;
 }
+
 h1 {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+
 .section {
     margin-bottom: 30px;
 }
+
 .section h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
+
 .section table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
-.section table, .section th, .section td {
+
+.section table,
+.section th,
+.section td {
     border: 1px solid #ddd;
 }
-.section th, .section td {
+
+.section th,
+.section td {
     padding: 8px;
     text-align: left;
 }
+
 .section th {
     background-color: #f2f2f2;
 }
+
 .signature-section {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
 }
+
 .signature {
     text-align: center;
     width: 45%;
 }
+
 .signature-line {
-    border-top: 1px solid #000;
+    border-top: 10px solid #000;
     margin-top: 40px;
     padding-top: 5px;
     width: 100%;
@@ -67,12 +80,34 @@ h1 {
 }
 
 #container_login {
-    background-color: rgb(2, 192, 2);
-    color: white;
+    background: rgb(9,157,0);
+    background: linear-gradient(180deg, rgba(9,157,0,1) 28%, rgba(255,235,0,1) 33%, rgba(255,235,0,1) 65%, rgba(9,157,0,1) 68%);
+    color: black;
     font-size: 50%;
 }
 
 #alert_container {
     margin: 2em auto;
     width: 50%;
-  }
+}
+
+#titulo_cabecalho {
+    background-color: yellow;
+}
+
+#navbarbeeze {
+    background: rgb(1, 140, 1);
+    color: white;
+}
+
+.container_butoes_filtro {
+    gap: 10px;
+    width: 50%;
+    display: flex;
+}
+
+#formulario_filtro {
+    display: flex;
+    justify-content: center;
+    margin: 3em 0;  
+}

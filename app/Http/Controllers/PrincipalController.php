@@ -19,11 +19,50 @@ class PrincipalController extends Controller
         return view('dashboard', ['Allaparelhos' => $Allaparelhos]);
     }
 
-    public function termos()
+    public function termos(Request $request)
     {
-        $Alltermos = Termos::all();
+        $query = Termos::query();
 
-        return view('termos', ['Alltermos' => $Alltermos]);
+        // Obtém os valores dos filtros do request
+        $usuario = $request->input('usuario', '');
+        $filial = $request->input('filial', '');
+        $cpf = $request->input('cpf', '');
+        $serie = $request->input('serie', '');
+        $auxaparelho = $request->input('auxaparelho', '');
+        $modelo = $request->input('modelo', '');
+    
+        // Aplica os filtros à query
+        if (!empty($usuario)) {
+            $query->whereRaw('lower(usuario) LIKE ?', ["%".mb_strtolower($usuario, 'UTF-8')."%"]);
+        }
+        if (!empty($filial)) {
+            $query->whereRaw('lower(filial) LIKE ?', ["%".mb_strtolower($filial, 'UTF-8')."%"]);
+        }
+        if (!empty($cpf)) {
+            $query->whereRaw('lower(cpf) LIKE ?', ["%".mb_strtolower($cpf, 'UTF-8')."%"]);
+        }
+        if (!empty($serie)) {
+            $query->whereRaw('lower(serie) LIKE ?', ["%".mb_strtolower($serie, 'UTF-8')."%"]);
+        }
+        if (!empty($auxaparelho)) {
+            $query->whereRaw('lower(auxaparelho) LIKE ?', ["%".mb_strtolower($auxaparelho, 'UTF-8')."%"]);
+        }
+        if (!empty($modelo)) {
+            $query->whereRaw('lower(modelo) LIKE ?', ["%".mb_strtolower($modelo, 'UTF-8')."%"]);
+        }
+    
+        $Alltermos = $query->orderBy('id', 'desc')->paginate(10);
+    
+        return view('termos', [
+            'Alltermos' => $Alltermos, 
+            'usuario' => $usuario,
+            'filial' => $filial,
+            'cpf' => $cpf,
+            'serie' => $serie,
+            'auxaparelho' => $auxaparelho,
+            'modelo' => $modelo,
+        ]);
+        
     }
 
     /**
