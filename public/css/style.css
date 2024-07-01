@@ -111,3 +111,7 @@ h1 {
     justify-content: center;
     margin: 3em 0;  
 }
+
+#campo_pesquisa {
+    border-radius: 15px;
+}

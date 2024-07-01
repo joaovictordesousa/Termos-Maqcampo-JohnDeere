@@ -42,27 +42,27 @@
 
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="usuario" value="{{ request('usuario') }}">
+            <input type="text" class="form-control" name="usuario" id="campo_pesquisa" value="{{ request('usuario') }}">
         </div>
 
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Filial</label>
-            <input type="text" class="form-control" name="filial" value="{{ request('filial') }}">
+            <input type="text" class="form-control" name="filial" id="campo_pesquisa" value="{{ request('filial') }}">
         </div>
 
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">CPF</label>
-            <input type="text" class="form-control" name="cpf" value="{{ request('cpf') }}">
+            <input type="text" class="form-control" name="cpf" id="campo_pesquisa" value="{{ request('cpf') }}">
         </div>
 
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Serie</label>
-            <input type="text" class="form-control" name="serie" value="{{ request('serie') }}">
+            <input type="text" class="form-control" name="serie" id="campo_pesquisa" value="{{ request('serie') }}">
         </div>
 
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="modelo" value="{{ request('modelo') }}">
+            <input type="text" class="form-control" name="modelo" id="campo_pesquisa" value="{{ request('modelo') }}">
         </div>
         <div class="container_butoes_filtro">
             <button type="submit" class="btn btn-success">Filtrar</button>
