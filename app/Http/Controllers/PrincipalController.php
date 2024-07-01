@@ -82,7 +82,7 @@ class PrincipalController extends Controller
 
         Termos::where('id', $id)->update($Novotermo);
 
-        return redirect()->route('index.termos')->with('success', 'Guia de recolhimento alterado com sucesso.');
+        return redirect()->route('index.termos')->with('warning', 'Alterado com sucesso.');
     }
 
     /**
