@@ -4,8 +4,8 @@
 
 <style>
     .teste {
-    color: dodgerblue;
-}
+        color: dodgerblue;
+    }
 </style>
 
 <title>Maqcampo | John Deere</title>
@@ -15,13 +15,13 @@
             {{ __('Termos') }}
         </h2>
     </x-slot>
-<!-- -----------------ALERTAR-------------------------------------------------- -->
+    <!-- -----------------ALERTAR-------------------------------------------------- -->
     @if (session('danger'))
         <div class="alert alert-danger" id="alert_container">
             {{ session('danger') }}
         </div>
         <script>
-            setTimeout(function() {
+            setTimeout(function () {
                 document.querySelector('.alert-danger').style.display = 'none';
             }, {{ session('display_time', 3000) }});
         </script>
@@ -31,12 +31,44 @@
             {{ session('warning') }}
         </div>
         <script>
-            setTimeout(function() {
+            setTimeout(function () {
                 document.querySelector('.alert-warning').style.display = 'none';
             }, {{ session('display_time', 3000) }});
         </script>
     @endif
-<!-- -----------------ALERTAR-------------------------------------------------- -->
+    <!-- -----------------ALERTAR-------------------------------------------------- -->
+
+    <form class="row g-3" method="GET" action="{{ url('termos') }}" id="formulario_filtro">
+
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label">Usuario</label>
+            <input type="text" class="form-control" name="usuario" value="{{ request('usuario') }}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label">Filial</label>
+            <input type="text" class="form-control" name="filial" value="{{ request('filial') }}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label">CPF</label>
+            <input type="text" class="form-control" name="cpf" value="{{ request('cpf') }}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label">Serie</label>
+            <input type="text" class="form-control" name="serie" value="{{ request('serie') }}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label">Modelo</label>
+            <input type="text" class="form-control" name="modelo" value="{{ request('modelo') }}">
+        </div>
+        <div class="container_butoes_filtro">
+            <button type="submit" class="btn btn-success">Filtrar</button>
+            <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>
+        </div>
+    </form>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -65,8 +97,11 @@
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
                                     <td>{{ $termos->modelo }}</td>
                                     <td class="teste"><b>{{ $termos->situacaoTermo->name  }}</b></td>
-                                    <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}" role="button">Editar</a></td>
-                                    <td><a class="btn btn-primary" href="{{ route('index.show', ['termos' => $termos->id]) }}" role="button">Ver</a></td>
+                                    <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}"
+                                            role="button">Editar</a></td>
+                                    <td><a class="btn btn-primary"
+                                            href="{{ route('index.show', ['termos' => $termos->id]) }}"
+                                            role="button">Ver</a></td>
                                     <td>
                                         <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"
                                             onsubmit="return confirm('Tem certeza que deseja excluir?')">

@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
+                            <button class="btn btn-success" type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>
