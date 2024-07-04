@@ -12,6 +12,13 @@ class PrincipalController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    // public function __construct() 
+    // {
+    //     // $this->middleware('can:level')->only('index'); Bloquear uma view
+    //     // $this->middleware('can:level')->only('index', 'create'); para colocar mais
+    // }
+
     public function index()
     {
         $Allaparelhos = Auxaparelho::all();

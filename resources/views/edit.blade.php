@@ -2,6 +2,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Maqcampo | John Deere</title>
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <link rel="icon" href="{{ asset('img/download.jpg')}}">
 
     <x-app-layout>
     <x-slot name="header">
