@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('serie');
             $table->string('auxaparelho');
             $table->string('modelo');
+            $table->string('anexo')->nullable();
             $table->timestamps();
+
+
         });
     }
 
