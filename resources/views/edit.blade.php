@@ -55,6 +55,16 @@
                             <input type="text" class="form-control" name="modelo" value="{{ $termos->modelo }}" id="campo" required>
                         </div>
 
+                        <div class="col-md-6">
+                            <label for="validationDefault03" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" name="modelo" value="{{ $termos->modelo }}" id="campo" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="validationDefault03" class="form-label">Anexo</label>
+                            <input type="text" class="form-control" name="anexo" value="{{ $termos->anexo }}" id="campo" required>
+                        </div>
+
                         <div class="col-12">
                             <button class="btn btn-success" type="submit">Salvar</button>
                         </div>

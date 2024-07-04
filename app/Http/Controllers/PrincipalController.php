@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anexo;
 use App\Models\Auxaparelho;
 use App\Models\Termos;
 use Dompdf\Dompdf; // Importa a classe Dompdf
@@ -92,6 +93,7 @@ class PrincipalController extends Controller
         return redirect()->route('dashboard')->with('success', 'Cadastrado com sucesso.');
     }
 
+
     /**
      * Display the specified resource.
      */
@@ -121,7 +123,8 @@ class PrincipalController extends Controller
             'cpf' => $request->input('cpf'),
             'serie' => $request->input('serie'),
             'auxaparelho' => $request->input('auxaparelho'),
-            'modelo' => $request->input('modelo')
+            'modelo' => $request->input('modelo'),
+            'anexo' => $request->input('anexo')
         ];
 
         // Atualização de resultado

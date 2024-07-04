@@ -18,7 +18,8 @@ class Termos extends Model
         'cpf',
         'serie',
         'auxaparelho',
-        'modelo'
+        'modelo',
+        'anexo'
     ];
 
     public function Aparelho(): BelongsTo  {

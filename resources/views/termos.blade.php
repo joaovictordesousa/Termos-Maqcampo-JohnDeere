@@ -64,7 +64,7 @@
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Modelo</label>
             <input type="text" class="form-control" name="modelo" id="campo_pesquisa" value="{{ request('modelo') }}">
-        </div>php
+        </div>
         <div class="container_butoes_filtro">
             <button type="submit" class="btn btn-success">Filtrar</button>
             <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>

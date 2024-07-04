@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('termos', function (Blueprint $table) {
-            $table->foreignId('situacao_termo_id')->default(2)->after('modelo')->constrained('situacao_termo');
+            $table->foreignId('situacao_termo_id')->default(2)->after('anexo')->constrained('situacao_termo');
             // after = criar a situacao_termo_id depois da campo modelo no banco.
             // constrained Criar o situacao_termo_id na tabela termos.
         });
