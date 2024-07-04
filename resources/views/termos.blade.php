@@ -1,6 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="icon" href="{{ asset('img/download.jpg')}}">
 
 <style>
     .teste {
@@ -54,7 +55,7 @@
             <label for="validationDefault01" class="form-label">CPF</label>
             <input type="text" class="form-control" name="cpf" id="campo_pesquisa" value="{{ request('cpf') }}">
         </div>
-
+        <br>
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Serie</label>
             <input type="text" class="form-control" name="serie" id="campo_pesquisa" value="{{ request('serie') }}">
@@ -63,7 +64,7 @@
         <div class="col-md-2">
             <label for="validationDefault01" class="form-label">Modelo</label>
             <input type="text" class="form-control" name="modelo" id="campo_pesquisa" value="{{ request('modelo') }}">
-        </div>
+        </div>php
         <div class="container_butoes_filtro">
             <button type="submit" class="btn btn-success">Filtrar</button>
             <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>
@@ -85,7 +86,9 @@
                                 <th>Status</th>
                                 <th>Editar</th>
                                 <th>Visualizar</th>
-                                <th>Excluir</th>
+                                @can('level')
+                                    <th>Excluir</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -102,14 +105,16 @@
                                     <td><a class="btn btn-primary"
                                             href="{{ route('index.show', ['termos' => $termos->id]) }}"
                                             role="button">Ver</a></td>
-                                    <td>
-                                        <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"
-                                            onsubmit="return confirm('Tem certeza que deseja excluir?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Excluir</button>
-                                        </form>
-                                    </td>
+                                    @can('level')
+                                        <td>
+                                            <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"
+                                                onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                            </form>
+                                        </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

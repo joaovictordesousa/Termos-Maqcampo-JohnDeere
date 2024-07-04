@@ -107,9 +107,8 @@ h1 {
 }
 
 #formulario_filtro {
-    display: flex;
-    justify-content: center;
-    margin: 3em 0;  
+    margin: 3em auto;  
+    width: 60%;
 }
 
 #campo_pesquisa {
