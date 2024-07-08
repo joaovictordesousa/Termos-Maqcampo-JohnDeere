@@ -108,9 +108,16 @@ h1 {
 
 #formulario_filtro {
     margin: 3em auto;  
+    display: flex;
     width: 60%;
 }
 
 #campo_pesquisa {
-    border-radius: 15px;
+    border-radius: 5px;
+}
+
+#button_salvar {
+    display: flex;
+    gap: 10px;
+    text-align: center;
 }
