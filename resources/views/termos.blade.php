@@ -41,30 +41,31 @@
 
     <form class="row g-3" method="GET" action="{{ url('termos') }}" id="formulario_filtro">
 
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Usuario</label>
             <input type="text" class="form-control" name="usuario" id="campo_pesquisa" value="{{ request('usuario') }}">
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Filial</label>
             <input type="text" class="form-control" name="filial" id="campo_pesquisa" value="{{ request('filial') }}">
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="validationDefault01" class="form-label">CPF</label>
             <input type="text" class="form-control" name="cpf" id="campo_pesquisa" value="{{ request('cpf') }}">
         </div>
         <br>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Serie</label>
             <input type="text" class="form-control" name="serie" id="campo_pesquisa" value="{{ request('serie') }}">
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Modelo</label>
             <input type="text" class="form-control" name="modelo" id="campo_pesquisa" value="{{ request('modelo') }}">
         </div>
+
         <div class="container_butoes_filtro">
             <button type="submit" class="btn btn-success">Filtrar</button>
             <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>
@@ -92,12 +93,14 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach ($Alltermos as $termos)
                                 <tr>
                                     <td>{{ $termos->usuario }}</td>
                                     <td>{{ $termos->filial }}</td>
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
+                                    <td>{{ $termos->modelo }}</td>
                                     <td>{{ $termos->modelo }}</td>
                                     <td class="teste"><b>{{ $termos->situacaoTermo->name  }}</b></td>
                                     <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}"
@@ -119,6 +122,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center">
+                        {{ $Alltermos->links('pagination::bootstrap-5') }}
+                    </div>
                 </div>
             </div>
         </div>

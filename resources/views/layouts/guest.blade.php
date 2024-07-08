@@ -19,7 +19,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-100">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-500" />
+                    <img src="{{ asset('img/new-new-logo-maqcampo.png')}}" alt="Maqcampo">
                 </a>
             </div>
 
