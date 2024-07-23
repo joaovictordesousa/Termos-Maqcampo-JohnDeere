@@ -38,39 +38,46 @@
         </script>
     @endif
     <!-- -----------------ALERTAR-------------------------------------------------- -->
+    <div class="container_pesquisa">
+        <form class="row g-3" method="GET" action="{{ url('termos') }}" id="formulario_filtro">
+            <h1 class="titulo_pesquisa"><b>Pesquisar</b></h1>
+            <hr>
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Usuario</label>
+                <input type="text" class="form-control" name="usuario" id="campo_pesquisa"
+                    value="{{ request('usuario') }}">
+            </div>
 
-    <form class="row g-3" method="GET" action="{{ url('termos') }}" id="formulario_filtro">
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Filial</label>
+                <input type="text" class="form-control" name="filial" id="campo_pesquisa"
+                    value="{{ request('filial') }}">
+            </div>
 
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="usuario" id="campo_pesquisa" value="{{ request('usuario') }}">
-        </div>
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">CPF</label>
+                <input type="text" class="form-control" name="cpf" id="campo_pesquisa" value="{{ request('cpf') }}">
+            </div>
+            <br>
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Serie</label>
+                <input type="text" class="form-control" name="serie" id="campo_pesquisa" value="{{ request('serie') }}">
+            </div>
 
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Filial</label>
-            <input type="text" class="form-control" name="filial" id="campo_pesquisa" value="{{ request('filial') }}">
-        </div>
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Modelo</label>
+                <input type="text" class="form-control" name="modelo" id="campo_pesquisa"
+                    value="{{ request('modelo') }}">
+            </div>
 
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">CPF</label>
-            <input type="text" class="form-control" name="cpf" id="campo_pesquisa" value="{{ request('cpf') }}">
-        </div>
-        <br>
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Serie</label>
-            <input type="text" class="form-control" name="serie" id="campo_pesquisa" value="{{ request('serie') }}">
-        </div>
+            <div class="container_butoes_filtro">
+                <button type="submit" class="btn btn-success">Filtrar</button>
+                <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>
+            </div>
+            <br>
+        </form>
+    </div>
 
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="modelo" id="campo_pesquisa" value="{{ request('modelo') }}">
-        </div>
-
-        <div class="container_butoes_filtro">
-            <button type="submit" class="btn btn-success">Filtrar</button>
-            <a href="{{ route('index.termos') }}" class="btn btn-danger" id="btn">Cancelar pesquisa</a>
-        </div>
-    </form>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -100,7 +107,6 @@
                                     <td>{{ $termos->filial }}</td>
                                     <td>{{ $termos->cpf }}</td>
                                     <td>{{ $termos->Aparelho->aparelho }}</td>
-                                    <td>{{ $termos->modelo }}</td>
                                     <td>{{ $termos->modelo }}</td>
                                     <td class="teste"><b>{{ $termos->situacaoTermo->name  }}</b></td>
                                     <td><a class="btn btn-warning" href="{{ route('index.edit', ['termos' => $termos])}}"
