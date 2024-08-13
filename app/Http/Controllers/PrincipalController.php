@@ -116,23 +116,35 @@ class PrincipalController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        $Novotermo = [
-            'usuario' => $request->input('usuario'),
-            'filial' => $request->input('filial'),
-            'cpf' => $request->input('cpf'),
-            'serie' => $request->input('serie'),
-            'auxaparelho' => $request->input('auxaparelho'),
-            'modelo' => $request->input('modelo'),
-            'anexo' => $request->input('anexo')
-        ];
+{
+    // Validação do arquivo
+    $request->validate([
+        'file' => 'nullable|file|mimes:jpg,png,pdf,docx|max:2048',
+    ]);
 
-        // Atualização de resultado
+    // Inicializar o array para atualização
+    $Novotermo = [
+        'usuario' => $request->input('usuario'),
+        'filial' => $request->input('filial'),
+        'cpf' => $request->input('cpf'),
+        'serie' => $request->input('serie'),
+        'auxaparelho' => $request->input('auxaparelho'),
+        'modelo' => $request->input('modelo'),
+    ];
 
-        Termos::where('id', $id)->update($Novotermo);
-
-        return redirect()->route('index.termos')->with('warning', 'Alterado com sucesso.');
+    // Verificar se um arquivo foi enviado e fazer o upload
+    if ($request->file()) {
+        $filePath = $request->file('file')->store('uploads', 'public');
+        $Novotermo['anexo'] = $filePath; // Atualiza o campo 'anexo' com o caminho do arquivo
     }
+
+    // Atualização do termo
+    Termos::where('id', $id)->update($Novotermo);
+
+    // Redirecionar com mensagem de sucesso
+    return redirect()->route('index.termos')->with('warning', 'Alterado com sucesso.');
+}
+
 
     /**
      * Remove the specified resource from storage.

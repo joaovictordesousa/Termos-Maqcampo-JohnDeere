@@ -15,7 +15,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form class="row g-3" action="{{ route('index.update', ['termos' => $termos->id]) }}" method="POST">
+                    <form class="row g-3" action="{{ route('index.update', ['termos' => $termos->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -59,16 +59,10 @@
                                 id="campo" required>
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="validationDefault03" class="form-label">Modelo</label>
-                            <input type="text" class="form-control" name="modelo" value="{{ $termos->modelo }}"
-                                id="campo" required>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="validationDefault03" class="form-label">Anexo</label>
-                            <input type="text" class="form-control" name="anexo" value="{{ $termos->anexo }}" id="campo"
-                                required>
+                        <div class="col-md-4">
+                            <label for="validationDefault01" class="form-label"><b>Anexa documento abaixo:</b></label>
+                            <hr>
+                            <input type="file" name="file" class="form-control" id="validationDefault01" required>
                         </div>
 
                         <div class="col-12">
