@@ -7,6 +7,10 @@
     .teste {
         color: dodgerblue;
     }
+
+    .acoes {
+        width: 15px;
+    }
 </style>
 
 <title>Maqcampo | John Deere</title>
@@ -92,10 +96,10 @@
                                 <th>Aparelho</th>
                                 <th>Modelo</th>
                                 <th>Status</th>
-                                <th>Editar</th>
-                                <th>Visualizar</th>
+                                <th class="acoes">Editar</th>
+                                <th class="acoes">Visualizar</th>
                                 @can('level')
-                                    <th>Excluir</th>
+                                    <th class="acoes">Excluir</th>
                                 @endcan
                             </tr>
                         </thead>
@@ -113,7 +117,7 @@
                                             role="button">Editar</a></td>
                                     <td><a class="btn btn-primary"
                                             href="{{ route('index.show', ['termos' => $termos->id]) }}"
-                                            role="button">Ver</a></td>
+                                            role="button">Imprimir</a></td>
                                     @can('level')
                                         <td>
                                             <form action="{{ route('index.destroy', ['termos' => $termos->id]) }}" method="POST"

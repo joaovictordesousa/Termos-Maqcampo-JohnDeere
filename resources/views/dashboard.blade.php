@@ -3,6 +3,10 @@
 <title>Maqcampo | John Deere</title>
 <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 <link rel="icon" href="{{ asset('img/download.jpg')}}">
+<head>
+    <!-- Outros links -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <x-app-layout>
     <x-slot name="header">
@@ -20,8 +24,7 @@
                 document.querySelector('.alert-success').style.display = 'none';
             }, {{ session('display_time', 3000) }});
         </script>
-    @endif
-
+    @endif  
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -11,11 +11,19 @@
         </h2>
     </x-slot>
 
+    @if ($errors->has('file'))
+        <div class="alert alert-danger">
+            {{ $errors->first('file') }}
+        </div>
+    @endif
+
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form class="row g-3" action="{{ route('index.update', ['termos' => $termos->id]) }}" method="POST" enctype="multipart/form-data">
+                    <form class="row g-3" action="{{ route('index.update', ['termos' => $termos->id]) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -62,8 +70,14 @@
                         <div class="col-md-4">
                             <label for="validationDefault01" class="form-label"><b>Anexa documento abaixo:</b></label>
                             <hr>
-                            <input type="file" name="file" class="form-control" id="validationDefault01" required>
+                            <input type="file" name="file" class="form-control" id="validationDefault01">
+
+                            @if($termos->file)
+                                <p>Arquivo atual: <a href="{{ asset('storage/app/public/uploads' . $termos->file) }}"
+                                        target="_blank">{{ basename($termos->file) }}</a></p>
+                            @endif
                         </div>
+
 
                         <div class="col-12">
                             <button class="btn btn-success" type="submit" id="button_salvar">
