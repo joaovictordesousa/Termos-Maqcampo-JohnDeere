@@ -18,3 +18,4 @@
 <li>Apagar</li>
 <li>Ver</li>
 <li>Criação de termo automático</li>
+<li>Anexo de termos assinados</li>
